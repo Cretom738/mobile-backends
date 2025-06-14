@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  fullName  String    @map("full_name") @db.VarChar(200)
+  email     String    @unique @db.VarChar(200)
+  password  String
+  role      ERole
+  sessions  Session[]
+  results   Result[]
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Session {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deviceId    String   @unique @map("device_id")
+  tokenPairId String   @unique @map("token_pair_id")
+  expiredAt   DateTime @map("expired_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("sessions")
+}
+
+model Speciality {
+  id          Int      @id @default(autoincrement())
+  title       String
+  code        String
+  description String?  @db.VarChar(500)
+  quizzes     Quiz[]
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("specialties")
+}
+
+model Quiz {
+  id           Int        @id @default(autoincrement())
+  title        String
+  duration     Int
+  description  String?    @db.VarChar(500)
+  specialityId Int        @map("speciality_id")
+  speciality   Speciality @relation(fields: [specialityId], references: [id], onDelete: Cascade)
+  questions    Question[]
+  results      Result[]
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+
+  @@map("quizzes")
+}
+
+model Question {
+  id        Int      @id @default(autoincrement())
+  text      String   @db.VarChar(500)
+  imageUrl  String?  @map("image_url")
+  quizId    Int      @map("quiz_id")
+  quiz      Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  answers   Answer[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("questions")
+}
+
+model Answer {
+  id         Int      @id @default(autoincrement())
+  text       String   @db.VarChar(500)
+  score      Int
+  questionId Int      @map("question_id")
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@map("answers")
+}
+
+model Result {
+  id         Int         @id @default(autoincrement())
+  score      Int?
+  totalScore Int?        @map("total_score")
+  status     EQuizStatus @default(STARTED)
+  quizId     Int         @map("quiz_id")
+  quiz       Quiz        @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  userId     Int         @map("user_id")
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime    @default(now()) @map("created_at")
+  updatedAt  DateTime    @updatedAt @map("updated_at")
+
+  @@map("results")
+}
+
+enum ERole {
+  USER
+  ADMIN
+}
+
+enum EQuizStatus {
+  STARTED
+  ENDED
+  FAILED
+}

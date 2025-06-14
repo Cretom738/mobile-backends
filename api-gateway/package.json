@@ -1,0 +1,17 @@
+{
+  "name": "api-gateway",
+  "description": "",
+  "repository": {},
+  "license": "UNLICENSED",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express-gateway": "^1.16.11",
+    "nodemon": "^3.1.10"
+  }
+}

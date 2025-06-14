@@ -1,0 +1,130 @@
+services:
+  redis:
+    image: redis:latest
+    restart: always
+    command: --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis-volume:/data
+    networks:
+      - common-network
+
+  s3:
+    image: scality/s3server:latest
+    restart: always
+    ports:
+      - ${BUCKET_PORT}:8000
+    volumes:
+      - s3-data-volume:/usr/src/app/localData
+      - s3-metadata-volume:/usr/src/app/localMetadata 
+      - "./s3config.json:/usr/src/app/config.json"
+    environment:
+      - SCALITY_ACCESS_KEY_ID=${ACCESS_KEY_ID}
+      - SCALITY_SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}
+    networks:
+      common-network:
+        aliases:
+          - it-test.s3
+          - pizza.s3
+          - it-test.host.docker.internal
+          - pizza.host.docker.internal
+
+  it-test-db:
+    image: mysql:8
+    restart: always
+    volumes:
+      - it-test-db-volume:/var/lib/mysql/
+    environment:
+      - MYSQL_DATABASE=${IT_TEST_DB}
+      - MYSQL_USER=${IT_TEST_DB_USER}
+      - MYSQL_PASSWORD=${IT_TEST_DB_PASSWORD}
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+    networks: 
+      - it-test-network
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      timeout: 10s
+      retries: 50
+      
+  it-test-backend:
+    container_name: "it-test-backend"
+    build:
+      context: ./it-test-backend
+      dockerfile: Dockerfile
+    depends_on:
+      it-test-db:
+        condition: service_healthy
+        restart: true
+      redis:
+        condition: service_started
+      s3:
+        condition: service_started
+    networks:
+      - common-network
+      - it-test-network
+    env_file:
+      - ./it-test-backend/.env
+
+  pizza-db:
+    image: mysql:8
+    restart: always
+    volumes:
+      - pizza-db-volume:/var/lib/mysql/
+    environment:
+      - MYSQL_DATABASE=${PIZZA_DB}
+      - MYSQL_USER=${PIZZA_DB_USER}
+      - MYSQL_PASSWORD=${PIZZA_DB_PASSWORD}
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+    networks: 
+      - pizza-network
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      timeout: 10s
+      retries: 50
+      
+  pizza-backend:
+    container_name: "pizza-backend"
+    build:
+      context: ./pizza-backend
+      dockerfile: Dockerfile
+    depends_on:
+      pizza-db:
+        condition: service_healthy
+        restart: true
+      redis:
+        condition: service_started
+      s3:
+        condition: service_started
+    networks:
+      - common-network
+      - pizza-network
+    env_file:
+      - ./pizza-backend/.env
+      
+  api-gateway:
+    container_name: "api-gateway"
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - ${API_GATEWAY_PORT}:8090
+    depends_on:
+      - it-test-backend
+      - pizza-backend 
+    networks:
+      - common-network
+    env_file:
+      - ./api-gateway/.env
+      
+volumes:
+  redis-volume:
+  s3-data-volume:
+  s3-metadata-volume:
+  it-test-db-volume:
+  pizza-db-volume:
+
+networks:
+  common-network:
+  it-test-network:
+  pizza-network:
+
+  

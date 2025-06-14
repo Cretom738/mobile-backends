@@ -1,0 +1,76 @@
+http:
+  port: ${API_GATEWAY_PORT}
+apiEndpoints:
+  images-it-test:
+    paths: '/it-test/images/*'
+    methods: ["GET"]
+  images-pizza:
+    paths: '/pizza/images/*'
+    methods: ["GET"]
+  it-test:
+    paths: '/it-test/*'
+    methods: ["GET", "POST", "PATCH", "DELETE"]
+  pizza:
+    paths: '/pizza/*'
+    methods: ["GET", "POST", "PATCH", "DELETE"]
+serviceEndpoints:
+  images-it-test:
+    url: ${IT_TEST_IMAGES_URL}
+  images-pizza:
+    url: ${PIZZA_IMAGES_URL}
+  it-test:
+    url: ${IT_TEST_URL}
+  pizza:
+    url: ${PIZZA_URL}
+policies:
+  - log
+  - proxy
+pipelines:
+  images-it-test:
+    apiEndpoints:
+      - images-it-test
+    policies:
+      - log:
+        - action:
+            message: "${req.method} ${req.originalUrl}"
+      - proxy:
+          action:
+            serviceEndpoint: images-it-test
+            stripPath: true
+            changeOrigin: true
+  images-pizza:
+    apiEndpoints:
+      - images-pizza
+    policies:
+      - log:
+        - action:
+            message: "${req.method} ${req.originalUrl}"
+      - proxy:
+          action:
+            serviceEndpoint: images-pizza
+            stripPath: true
+            changeOrigin: true
+  it-test:
+    apiEndpoints:
+      - it-test
+    policies:
+      - log:
+        - action:
+            message: "${req.method} ${req.originalUrl}"
+      - proxy:
+          action:
+            serviceEndpoint: it-test 
+            stripPath: true
+            changeOrigin: true
+  pizza:
+    apiEndpoints:
+      - pizza
+    policies:
+      - log:
+        - action:
+            message: "${req.method} ${req.originalUrl}"
+      - proxy:
+          action:
+            serviceEndpoint: pizza
+            stripPath: true
+            changeOrigin: true
