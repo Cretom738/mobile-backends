@@ -27,14 +27,14 @@ import { SpecialityDto } from './dtos/speciality.dto';
 import { CreateSpecialityDto } from './dtos/create-speciality.dto';
 import { UpdateSpecialityDto } from './dtos/update-speciality.dto';
 import { ERole, Speciality } from '@prisma/client';
-import { ApiOkPaginatedResponse } from 'src/libs/decorators/paginated-response.decorator';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { PaginatedResponseDto } from 'src/libs/dtos/paginated-response.dto';
-import { RoleGuard } from 'src/libs/guards/role.guard';
-import { Roles } from 'src/libs/decorators/role.decorator';
+import { ApiOkPaginatedResponse } from '../../libs/decorators/paginated-response.decorator';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { PaginatedResponseDto } from '../../libs/dtos/paginated-response.dto';
+import { RoleGuard } from '../../libs/guards/role.guard';
+import { Roles } from '../../libs/decorators/role.decorator';
 import { FilterSpecialityDto } from './dtos/filter-speciality.dto';
-import { AuthGuard } from 'src/libs/guards/auth.guard';
+import { AuthGuard } from '../../libs/guards/auth.guard';
 
 @Controller('specialties')
 @ApiTags('Specialties')

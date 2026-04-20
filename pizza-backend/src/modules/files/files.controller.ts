@@ -22,9 +22,9 @@ import {
   ApiUnprocessableEntityResponse,
 } from '@nestjs/swagger';
 import { FileDto } from './dtos/file.dto';
-import { AuthGuard } from 'src/libs/guards/auth.guard';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
+import { AuthGuard } from '../../libs/guards/auth.guard';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
 
 @Controller('files')
 @ApiTags('Files')

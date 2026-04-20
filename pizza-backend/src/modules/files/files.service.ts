@@ -3,7 +3,7 @@ import { IFilesService } from './files';
 import { ConfigService } from '@nestjs/config';
 import { S3 } from '@aws-sdk/client-s3';
 import { Upload } from '@aws-sdk/lib-storage';
-import { IFile } from 'src/libs/ts/interfaces/file.interface';
+import { IFile } from '../../libs/ts/interfaces/file.interface';
 import { randomUUID } from 'crypto';
 
 @Injectable()

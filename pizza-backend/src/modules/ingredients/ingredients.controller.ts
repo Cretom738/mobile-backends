@@ -22,14 +22,14 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { IngredientDto } from 'src/modules/ingredients/dtos/ingredient.dto';
-import { CreateIngredientDto } from 'src/modules/ingredients/dtos/create-ingredient.dto';
-import { UpdateIngredientDto } from 'src/modules/ingredients/dtos/update-ingredient.dto';
+import { IngredientDto } from '../../modules/ingredients/dtos/ingredient.dto';
+import { CreateIngredientDto } from '../../modules/ingredients/dtos/create-ingredient.dto';
+import { UpdateIngredientDto } from '../../modules/ingredients/dtos/update-ingredient.dto';
 import { Ingredient, ERole } from '@prisma/client';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { RoleGuard } from 'src/libs/guards/role.guard';
-import { Roles } from 'src/libs/decorators/role.decorator';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { RoleGuard } from '../../libs/guards/role.guard';
+import { Roles } from '../../libs/decorators/role.decorator';
 
 @Controller('products/:productId/ingredients')
 @ApiTags('Ingredients')

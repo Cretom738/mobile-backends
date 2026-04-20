@@ -22,15 +22,15 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { CityDto } from 'src/modules/cities/dtos/city.dto';
-import { CreateCityDto } from 'src/modules/cities/dtos/create-city.dto';
-import { UpdateCityDto } from 'src/modules/cities/dtos/update-city.dto';
+import { CityDto } from '../../modules/cities/dtos/city.dto';
+import { CreateCityDto } from '../../modules/cities/dtos/create-city.dto';
+import { UpdateCityDto } from '../../modules/cities/dtos/update-city.dto';
 import { City, ERole } from '@prisma/client';
-import { AuthGuard } from 'src/libs/guards/auth.guard';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { RoleGuard } from 'src/libs/guards/role.guard';
-import { Roles } from 'src/libs/decorators/role.decorator';
+import { AuthGuard } from '../../libs/guards/auth.guard';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { RoleGuard } from '../../libs/guards/role.guard';
+import { Roles } from '../../libs/decorators/role.decorator';
 
 @Controller('regions/:regionId/cities')
 @ApiTags('Cities')

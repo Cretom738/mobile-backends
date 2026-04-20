@@ -23,22 +23,22 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { UserInfo } from 'src/libs/decorators/user-info.decorator';
+import { UserInfo } from '../../libs/decorators/user-info.decorator';
 import { UsersService } from './users.service';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
 import { UserDto } from './dtos/user.dto';
 import { UpdateCurrentUserDto } from './dtos/update-current-user.dto';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
 import { CreateUserDto } from './dtos/create-user.dto';
-import { RoleGuard } from 'src/libs/guards/role.guard';
-import { Roles } from 'src/libs/decorators/role.decorator';
+import { RoleGuard } from '../../libs/guards/role.guard';
+import { Roles } from '../../libs/decorators/role.decorator';
 import { ERole } from '@prisma/client';
-import { ApiOkPaginatedResponse } from 'src/libs/decorators/paginated-response.decorator';
-import { PaginatedResponseDto } from 'src/libs/dtos/paginated-response.dto';
+import { ApiOkPaginatedResponse } from '../../libs/decorators/paginated-response.decorator';
+import { PaginatedResponseDto } from '../../libs/dtos/paginated-response.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { FilterUsersDto } from './dtos/filter-users.dto';
-import { AuthGuard } from 'src/libs/guards/auth.guard';
+import { AuthGuard } from '../../libs/guards/auth.guard';
 
 @Controller('users')
 @ApiTags('Users')

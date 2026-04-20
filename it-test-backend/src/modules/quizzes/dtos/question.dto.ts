@@ -1,8 +1,8 @@
 import { ApiProperty, OmitType } from '@nestjs/swagger';
-import { QuestionsWithRelatedTables } from 'src/libs/ts/types/type';
-import { CreateQuestionDto } from 'src/modules/questions/dtos/create-question.dto';
+import { QuestionsWithRelatedTables } from '../../../libs/ts/types/type';
+import { CreateQuestionDto } from '../../../modules/questions/dtos/create-question.dto';
 import { AnswerDto } from './answer.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { IJwtPayload } from '../../../libs/ts/interfaces/jwt-payload.interface';
 
 export class QuestionDto extends OmitType(CreateQuestionDto, ['answers']) {
   @ApiProperty()

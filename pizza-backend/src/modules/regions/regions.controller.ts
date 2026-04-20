@@ -26,11 +26,11 @@ import { RegionDto } from './dtos/region.dto';
 import { CreateRegionDto } from './dtos/create-region.dto';
 import { UpdateRegionDto } from './dtos/update-region.dto';
 import { ERole, Region } from '@prisma/client';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { Roles } from 'src/libs/decorators/role.decorator';
-import { RoleGuard } from 'src/libs/guards/role.guard';
-import { AuthGuard } from 'src/libs/guards/auth.guard';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { Roles } from '../../libs/decorators/role.decorator';
+import { RoleGuard } from '../../libs/guards/role.guard';
+import { AuthGuard } from '../../libs/guards/auth.guard';
 
 @Controller('regions')
 @ApiTags('Regions')

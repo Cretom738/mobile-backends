@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { CreateOrderDto } from './create-order.dto';
 import { EOrderStatus } from '@prisma/client';
-import { OrderWithUser } from 'src/libs/ts/types/type';
+import { OrderWithUser } from '../../../libs/ts/types/type';
 
 export class OrdersDto extends CreateOrderDto {
   @ApiProperty()

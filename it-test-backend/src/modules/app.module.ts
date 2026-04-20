@@ -11,12 +11,12 @@ import { AuthMiddleware } from '../libs/middlewares/auth.middleware';
 import { InternalJwtModule } from './internal-jwt/internal-jwt.module';
 import { UsersModule } from './users/users.module';
 import { FilesModule } from './files/files.module';
-import { configSchema } from 'src/libs/config/schema.config';
-import { getRedisConfig } from 'src/libs/config/redis.config';
 import { RedisModule } from '@nestjs-modules/ioredis';
 import { QuizzesModule } from './quizzes/quizzes.module';
 import { SpecialtiesModule } from './specialties/specialties.module';
 import { QuestionsModule } from './questions/questions.module';
+import { configSchema } from '../libs/config/schema.config';
+import { getRedisConfig } from '../libs/config/redis.config';
 
 @Module({
   imports: [

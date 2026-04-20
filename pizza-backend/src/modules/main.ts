@@ -4,7 +4,7 @@ import { ConfigService } from '@nestjs/config';
 import { ValidationPipe } from '@nestjs/common';
 import { PrismaErrorFilter } from '../libs/filters/prisma-error.filter';
 import { TransformInterceptor } from '../libs/interceptors/transform.interceptor';
-import { setupOpenApi } from 'src/libs/config/swagger.config';
+import { setupOpenApi } from '../libs/config/swagger.config';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestApplication>(AppModule, {

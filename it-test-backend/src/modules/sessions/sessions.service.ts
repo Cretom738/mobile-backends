@@ -1,12 +1,12 @@
 import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { ISessionsService } from './sessions';
-import { PrismaService } from 'src/libs/services/prisma.service';
+import { PrismaService } from '../../libs/services/prisma.service';
 import { Session } from '@prisma/client';
 import { ConfigService } from '@nestjs/config';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { Redis } from 'ioredis';
 import { InternalJwtService } from '../internal-jwt/internal-jwt.service';
-import { ISession } from 'src/libs/ts/interfaces/session.interface';
+import { ISession } from '../../libs/ts/interfaces/session.interface';
 import { InjectRedis } from '@nestjs-modules/ioredis';
 
 @Injectable()

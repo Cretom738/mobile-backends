@@ -1,11 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateOrderDto } from './dtos/create-order.dto';
-import { PrismaService } from 'src/libs/services/prisma.service';
+import { PrismaService } from '../../libs/services/prisma.service';
 import { Prisma, ERole } from '@prisma/client';
 import { FilterOrderDto } from './dtos/filter-order.dto';
-import { OrderWithRelatedTables, OrderWithUser } from 'src/libs/ts/types/type';
+import {
+  OrderWithRelatedTables,
+  OrderWithUser,
+} from '../../libs/ts/types/type';
 import { UpdateOrderDto } from './dtos/update-order.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
 import { IOrdersService } from './orders';
 
 @Injectable()

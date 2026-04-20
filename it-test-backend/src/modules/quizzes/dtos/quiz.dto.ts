@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { EQuizStatus, ERole } from '@prisma/client';
-import { QuizWithRelatedTables } from 'src/libs/ts/types/type';
+import { QuizWithRelatedTables } from '../../../libs/ts/types/type';
 import { QuestionDto } from './question.dto';
 import { QuizzesDto } from './quizzes.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { IJwtPayload } from '../../../libs/ts/interfaces/jwt-payload.interface';
 
 export class QuizDto extends QuizzesDto {
   @ApiProperty({ type: [QuestionDto] })

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { OrderProductWithRelatedTables } from 'src/libs/ts/types/type';
-import { IngredientDto } from 'src/modules/ingredients/dtos/ingredient.dto';
-import { ProductDto } from 'src/modules/products/dtos/product.dto';
+import { OrderProductWithRelatedTables } from '../../../libs/ts/types/type';
+import { IngredientDto } from '../../../modules/ingredients/dtos/ingredient.dto';
+import { ProductDto } from '../../../modules/products/dtos/product.dto';
 
 export class OrderProductDto extends ProductDto {
   @ApiProperty()

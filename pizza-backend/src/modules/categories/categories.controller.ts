@@ -21,15 +21,15 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { CategoriesService } from './categories.service';
-import { CategoryDto } from 'src/modules/categories/dtos/category.dto';
+import { CategoryDto } from '../../modules/categories/dtos/category.dto';
 import { Category, ERole } from '@prisma/client';
-import { CreateCategoryDto } from 'src/modules/categories/dtos/create-category.dto';
-import { UpdateCategoryDto } from 'src/modules/categories/dtos/update-category.dto';
+import { CreateCategoryDto } from '../../modules/categories/dtos/create-category.dto';
+import { UpdateCategoryDto } from '../../modules/categories/dtos/update-category.dto';
 import { Patch } from '@nestjs/common';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { Roles } from 'src/libs/decorators/role.decorator';
-import { RoleGuard } from 'src/libs/guards/role.guard';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { Roles } from '../../libs/decorators/role.decorator';
+import { RoleGuard } from '../../libs/guards/role.guard';
 
 @Controller('categories')
 @ApiTags('Categories')

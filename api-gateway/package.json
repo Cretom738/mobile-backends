@@ -2,7 +2,8 @@
   "name": "api-gateway",
   "description": "",
   "repository": {},
-  "license": "UNLICENSED",
+  "author": "Cretom738",
+  "license": "MIT",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {

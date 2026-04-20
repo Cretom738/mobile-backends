@@ -25,23 +25,23 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { UserInfo } from 'src/libs/decorators/user-info.decorator';
-import { Roles } from 'src/libs/decorators/role.decorator';
-import { RoleGuard } from 'src/libs/guards/role.guard';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { UserInfo } from '../../libs/decorators/user-info.decorator';
+import { Roles } from '../../libs/decorators/role.decorator';
+import { RoleGuard } from '../../libs/guards/role.guard';
 import { ERole } from '@prisma/client';
 import { UpdateQuizDto } from './dtos/update-quiz.dto';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { PaginatedResponseDto } from 'src/libs/dtos/paginated-response.dto';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { PaginatedResponseDto } from '../../libs/dtos/paginated-response.dto';
 import { QuizDto } from './dtos/quiz.dto';
 import { FilterQuizDto } from './dtos/filter-quiz.dto';
 import { ResultDto } from './dtos/result.dto';
-import { ApiOkPaginatedResponse } from 'src/libs/decorators/paginated-response.decorator';
+import { ApiOkPaginatedResponse } from '../../libs/decorators/paginated-response.decorator';
 import { QuizzesDto } from './dtos/quizzes.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
-import { PaginatedRequestDto } from 'src/libs/dtos/paginated-request.dto';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
+import { PaginatedRequestDto } from '../../libs/dtos/paginated-request.dto';
 import { SubmitAnswersDto } from './dtos/submit-anwsers.dto';
-import { AuthGuard } from 'src/libs/guards/auth.guard';
+import { AuthGuard } from '../../libs/guards/auth.guard';
 
 @ApiTags('Quizzes')
 @Controller('quizzes')

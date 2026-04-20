@@ -1,6 +1,6 @@
 import { ERole } from '@prisma/client';
-import { EJwtTokenTypes } from 'src/libs/ts/enums/enum';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { EJwtTokenTypes } from '../../libs/ts/enums/enum';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
 
 export interface IInternalJwtService {
   generateToken(payload: IJwtPayload, lifeTime: number): Promise<string>;

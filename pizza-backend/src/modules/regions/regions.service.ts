@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IRegionsService } from './regions';
 import { CreateRegionDto } from './dtos/create-region.dto';
 import { UpdateRegionDto } from './dtos/update-region.dto';
-import { PrismaService } from 'src/libs/services/prisma.service';
+import { PrismaService } from '../../libs/services/prisma.service';
 import { Region } from '@prisma/client';
 
 @Injectable()

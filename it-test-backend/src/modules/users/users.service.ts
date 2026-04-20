@@ -1,13 +1,13 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { IUsersService } from './users';
-import { CreateUserDto } from 'src/modules/users/dtos/create-user.dto';
-import { PrismaService } from 'src/libs/services/prisma.service';
 import { ERole, Prisma, User } from '.prisma/client';
 import { UpdateCurrentUserDto } from './dtos/update-current-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { SessionsService } from '../sessions/sessions.service';
-import { ArgonService } from 'src/libs/services/argon.service';
 import { FilterUsersDto } from './dtos/filter-users.dto';
+import { PrismaService } from '../../libs/services/prisma.service';
+import { ArgonService } from '../../libs/services/argon.service';
+import { CreateUserDto } from './dtos/create-user.dto';
 
 @Injectable()
 export class UsersService implements IUsersService {
@@ -45,22 +45,24 @@ export class UsersService implements IUsersService {
     limit,
     sortOrder,
   }: FilterUsersDto): Promise<[User[], number]> {
-    const query: Prisma.UserFindManyArgs = {
-      where: {
-        OR: [
-          {
-            fullName: {
-              contains: text,
-            },
+    const query: Prisma.UserFindManyArgs = text
+      ? {
+          where: {
+            OR: [
+              {
+                fullName: {
+                  contains: text,
+                },
+              },
+              {
+                email: {
+                  contains: text,
+                },
+              },
+            ],
           },
-          {
-            email: {
-              contains: text,
-            },
-          },
-        ],
-      },
-    };
+        }
+      : {};
 
     return this.prisma.$transaction([
       this.prisma.user.findMany({
@@ -131,7 +133,7 @@ export class UsersService implements IUsersService {
 
     delete dto['password'];
 
-    const wliUser = await this.prisma.user.update({
+    const user = await this.prisma.user.update({
       where: {
         id,
       },
@@ -145,7 +147,7 @@ export class UsersService implements IUsersService {
     });
 
     if (dto.email || password) {
-      await this.sessionService.deleteAllSessions(wliUser.sessions);
+      await this.sessionService.deleteAllSessions(user.sessions);
     }
   }
 

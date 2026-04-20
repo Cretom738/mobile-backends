@@ -1,6 +1,6 @@
-import { AuthDto } from 'src/modules/auth/dtos/auth.dto';
-import { CreateUserDto } from 'src/modules/users/dtos/create-user.dto';
-import { AuthSuccessDto } from 'src/modules/auth/dtos/auth-success.dto';
+import { AuthDto } from '../../modules/auth/dtos/auth.dto';
+import { CreateUserDto } from '../../modules/users/dtos/create-user.dto';
+import { AuthSuccessDto } from '../../modules/auth/dtos/auth-success.dto';
 
 export interface IAuthService {
   register(dto: CreateUserDto): Promise<AuthSuccessDto>;

@@ -1,5 +1,5 @@
 import { ERole, User } from '@prisma/client';
-import { CreateUserDto } from 'src/modules/users/dtos/create-user.dto';
+import { CreateUserDto } from '../../modules/users/dtos/create-user.dto';
 import { UpdateCurrentUserDto } from './dtos/update-current-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { FilterUsersDto } from './dtos/filter-users.dto';

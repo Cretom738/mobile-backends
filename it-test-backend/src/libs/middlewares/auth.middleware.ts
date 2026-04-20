@@ -1,7 +1,7 @@
 import { Injectable, Logger, NestMiddleware } from '@nestjs/common';
 import { NextFunction, Request, Response } from 'express';
 import { EJwtTokenTypes } from '../ts/enums/enum';
-import { InternalJwtService } from 'src/modules/internal-jwt/internal-jwt.service';
+import { InternalJwtService } from '../../modules/internal-jwt/internal-jwt.service';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {

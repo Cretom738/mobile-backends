@@ -1,7 +1,10 @@
 import { CreateOrderDto } from './dtos/create-order.dto';
 import { FilterOrderDto } from './dtos/filter-order.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
-import { OrderWithRelatedTables, OrderWithUser } from 'src/libs/ts/types/type';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
+import {
+  OrderWithRelatedTables,
+  OrderWithUser,
+} from '../../libs/ts/types/type';
 import { UpdateOrderDto } from './dtos/update-order.dto';
 
 export interface IOrdersService {

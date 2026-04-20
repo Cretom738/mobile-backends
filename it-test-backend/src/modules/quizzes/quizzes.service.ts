@@ -2,14 +2,14 @@ import { ConflictException, Injectable } from '@nestjs/common';
 import { IQuizzesService } from './quizzes';
 import { EQuizStatus, Prisma, Quiz, Result } from '@prisma/client';
 import { UpdateQuizDto } from './dtos/update-quiz.dto';
-import { PrismaService } from 'src/libs/services/prisma.service';
+import { PrismaService } from '../../libs/services/prisma.service';
 import { CreateQuizDto } from './dtos/create-quiz.dto';
 import { FilterQuizDto } from './dtos/filter-quiz.dto';
-import { QuizWithRelatedTables } from 'src/libs/ts/types/type';
-import { addMinutes } from 'src/libs/helpers/helper';
+import { QuizWithRelatedTables } from '../../libs/ts/types/type';
+import { addMinutes } from '../../libs/helpers/helper';
 import { SubmitAnswersDto } from './dtos/submit-anwsers.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
-import { PaginatedRequestDto } from 'src/libs/dtos/paginated-request.dto';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
+import { PaginatedRequestDto } from '../../libs/dtos/paginated-request.dto';
 
 @Injectable()
 export class QuizzesService implements IQuizzesService {

@@ -27,12 +27,12 @@ import { ProductDto } from './dtos/product.dto';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { UpdateProductDto } from './dtos/update-product.dto';
 import { ERole, Product } from '@prisma/client';
-import { ApiOkPaginatedResponse } from 'src/libs/decorators/paginated-response.decorator';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { PaginatedResponseDto } from 'src/libs/dtos/paginated-response.dto';
-import { RoleGuard } from 'src/libs/guards/role.guard';
-import { Roles } from 'src/libs/decorators/role.decorator';
+import { ApiOkPaginatedResponse } from '../../libs/decorators/paginated-response.decorator';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { PaginatedResponseDto } from '../../libs/dtos/paginated-response.dto';
+import { RoleGuard } from '../../libs/guards/role.guard';
+import { Roles } from '../../libs/decorators/role.decorator';
 import { FilterProductDto } from './dtos/filter-product.dto';
 
 @Controller('products')

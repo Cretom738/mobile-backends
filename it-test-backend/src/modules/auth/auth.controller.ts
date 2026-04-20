@@ -7,12 +7,12 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateUserDto } from 'src/modules/users/dtos/create-user.dto';
-import { AuthSuccessDto } from 'src/modules/auth/dtos/auth-success.dto';
-import { AuthDto } from 'src/modules/auth/dtos/auth.dto';
-import { UserInfo } from 'src/libs/decorators/user-info.decorator';
-import { AuthGuard } from 'src/libs/guards/auth.guard';
-import { RefreshDto } from 'src/modules/auth/dtos/refresh.dto';
+import { CreateUserDto } from '../../modules/users/dtos/create-user.dto';
+import { AuthSuccessDto } from '../../modules/auth/dtos/auth-success.dto';
+import { AuthDto } from '../../modules/auth/dtos/auth.dto';
+import { UserInfo } from '../../libs/decorators/user-info.decorator';
+import { AuthGuard } from '../../libs/guards/auth.guard';
+import { RefreshDto } from '../../modules/auth/dtos/refresh.dto';
 import {
   ApiBadRequestResponse,
   ApiConflictResponse,
@@ -24,9 +24,9 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
 
 @Controller('auth')
 @ApiTags('Auth')

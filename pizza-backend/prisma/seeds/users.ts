@@ -1,6 +1,6 @@
 import { Logger } from '@nestjs/common';
 import { ERole, Prisma, PrismaClient } from '@prisma/client';
-import { ArgonService } from 'src/libs/services/argon.service';
+import { ArgonService } from '../../src/libs/services/argon.service';
 
 export const createUsers = async (prisma: PrismaClient, logger: Logger) => {
   const argon = new ArgonService();

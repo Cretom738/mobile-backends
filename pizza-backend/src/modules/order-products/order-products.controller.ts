@@ -9,8 +9,8 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { RoleGuard } from 'src/libs/guards/role.guard';
-import { Roles } from 'src/libs/decorators/role.decorator';
+import { RoleGuard } from '../../libs/guards/role.guard';
+import { Roles } from '../../libs/decorators/role.decorator';
 import {
   ApiBadRequestResponse,
   ApiConflictResponse,
@@ -22,9 +22,9 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { CommonErrorResponseDto } from 'src/libs/dtos/common-error-response.dto';
+import { CommonErrorResponseDto } from '../../libs/dtos/common-error-response.dto';
 import { ERole } from '@prisma/client';
-import { BadErrorRequestDto } from 'src/libs/dtos/bad-request-error.dto';
+import { BadErrorRequestDto } from '../../libs/dtos/bad-request-error.dto';
 import { OrderProductsService } from './order-products.service';
 import { CreateOrderProductDto } from './dtos/create-order-product.dto';
 import { UpdateOrderProductDto } from './dtos/update-order-product.dto';

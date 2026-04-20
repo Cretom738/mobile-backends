@@ -1,6 +1,6 @@
 import { Category } from '@prisma/client';
-import { CreateCategoryDto } from 'src/modules/categories/dtos/create-category.dto';
-import { UpdateCategoryDto } from 'src/modules/categories/dtos/update-category.dto';
+import { CreateCategoryDto } from '../../modules/categories/dtos/create-category.dto';
+import { UpdateCategoryDto } from '../../modules/categories/dtos/update-category.dto';
 
 export interface ICategoriesService {
   createCategory(dto: CreateCategoryDto): Promise<void>;

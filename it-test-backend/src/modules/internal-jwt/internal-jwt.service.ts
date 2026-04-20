@@ -4,8 +4,8 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { randomUUID } from 'crypto';
 import { Redis } from 'ioredis';
-import { EJwtTokenTypes } from 'src/libs/ts/enums/enum';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { EJwtTokenTypes } from '../../libs/ts/enums/enum';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
 import { IInternalJwtService } from './internal-jwt';
 import { ERole } from '@prisma/client';
 

@@ -1,4 +1,4 @@
-import { ISession } from 'src/libs/ts/interfaces/session.interface';
+import { ISession } from '../../libs/ts/interfaces/session.interface';
 
 export interface ISessionsService {
   createSession(dto: ISession): Promise<void>;

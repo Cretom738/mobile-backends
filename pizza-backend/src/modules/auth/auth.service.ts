@@ -1,14 +1,14 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { IAuthService } from './auth';
-import { AuthDto } from 'src/modules/auth/dtos/auth.dto';
-import { CreateUserDto } from 'src/modules/users/dtos/create-user.dto';
-import { AuthSuccessDto } from 'src/modules/auth/dtos/auth-success.dto';
+import { AuthDto } from '../../modules/auth/dtos/auth.dto';
+import { CreateUserDto } from '../../modules/users/dtos/create-user.dto';
+import { AuthSuccessDto } from '../../modules/auth/dtos/auth-success.dto';
 import { UsersService } from '../users/users.service';
-import { ArgonService } from 'src/libs/services/argon.service';
+import { ArgonService } from '../../libs/services/argon.service';
 import { InternalJwtService } from '../internal-jwt/internal-jwt.service';
 import { randomUUID } from 'crypto';
-import { SessionsService } from 'src/modules/sessions/sessions.service';
-import { EJwtTokenTypes } from 'src/libs/ts/enums/enum';
+import { SessionsService } from '../../modules/sessions/sessions.service';
+import { EJwtTokenTypes } from '../../libs/ts/enums/enum';
 
 @Injectable()
 export class AuthService implements IAuthService {

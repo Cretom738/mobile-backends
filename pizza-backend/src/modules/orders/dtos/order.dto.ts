@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { OrdersDto } from './orders.dto';
-import { OrderWithRelatedTables } from 'src/libs/ts/types/type';
+import { OrderWithRelatedTables } from '../../../libs/ts/types/type';
 import { OrderProductDto } from './order-product.dto';
 
 export class OrderDto extends OrdersDto {

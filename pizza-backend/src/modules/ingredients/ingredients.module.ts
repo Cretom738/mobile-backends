@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { IngredientsService } from './ingredients.service';
 import { IngredientsController } from './ingredients.controller';
-import { PrismaService } from 'src/libs/services/prisma.service';
+import { PrismaService } from '../../libs/services/prisma.service';
 
 @Module({
   providers: [IngredientsService, PrismaService],

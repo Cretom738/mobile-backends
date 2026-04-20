@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ISpecialtiesService } from './specialties';
 import { CreateSpecialityDto } from './dtos/create-speciality.dto';
 import { UpdateSpecialityDto } from './dtos/update-speciality.dto';
-import { PrismaService } from 'src/libs/services/prisma.service';
+import { PrismaService } from '../../libs/services/prisma.service';
 import { Prisma, Speciality } from '@prisma/client';
 import { FilterSpecialityDto } from './dtos/filter-speciality.dto';
 

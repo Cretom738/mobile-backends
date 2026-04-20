@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Answer, ERole } from '@prisma/client';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
-import { CreateAnswerDto } from 'src/modules/questions/dtos/create-answer.dto';
+import { IJwtPayload } from '../../../libs/ts/interfaces/jwt-payload.interface';
+import { CreateAnswerDto } from '../../../modules/questions/dtos/create-answer.dto';
 
 export class AnswerDto extends CreateAnswerDto {
   @ApiProperty()

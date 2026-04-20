@@ -2,10 +2,10 @@ import { Quiz, Result } from '@prisma/client';
 import { UpdateQuizDto } from './dtos/update-quiz.dto';
 import { CreateQuizDto } from './dtos/create-quiz.dto';
 import { FilterQuizDto } from './dtos/filter-quiz.dto';
-import { QuizWithRelatedTables } from 'src/libs/ts/types/type';
-import { IJwtPayload } from 'src/libs/ts/interfaces/jwt-payload.interface';
+import { QuizWithRelatedTables } from '../../libs/ts/types/type';
+import { IJwtPayload } from '../../libs/ts/interfaces/jwt-payload.interface';
 import { SubmitAnswersDto } from './dtos/submit-anwsers.dto';
-import { PaginatedRequestDto } from 'src/libs/dtos/paginated-request.dto';
+import { PaginatedRequestDto } from '../../libs/dtos/paginated-request.dto';
 
 export interface IQuizzesService {
   createQuiz(dto: CreateQuizDto, user: IJwtPayload): Promise<void>;

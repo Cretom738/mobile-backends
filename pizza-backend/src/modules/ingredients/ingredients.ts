@@ -1,6 +1,6 @@
 import { Ingredient } from '@prisma/client';
-import { CreateIngredientDto } from 'src/modules/ingredients/dtos/create-ingredient.dto';
-import { UpdateIngredientDto } from 'src/modules/ingredients/dtos/update-ingredient.dto';
+import { CreateIngredientDto } from '../../modules/ingredients/dtos/create-ingredient.dto';
+import { UpdateIngredientDto } from '../../modules/ingredients/dtos/update-ingredient.dto';
 
 export interface IIngredientsService {
   createIngredient(productId: number, dto: CreateIngredientDto): Promise<void>;
